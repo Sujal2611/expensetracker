@@ -8,6 +8,14 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 """
 
 import os
+import nltk
+
+# Download the necessary datasets
+nltk.download('punkt')  # For tokenization
+nltk.download('stopwords')  # For stop words
+nltk.download('wordnet')  # For lemmatization
+nltk.download('averaged_perceptron_tagger')  # For POS tagging
+
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'expensetracker.settings')
