@@ -10,11 +10,8 @@ import os
 import matplotlib
 
 matplotlib.use('Agg')
+
 PORT = os.getenv("PORT", "10000")  # Default to 10000 if not set
-
-if 'RENDER' in os.environ:
-    ALLOWED_HOSTS.append("0.0.0.0")
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +22,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "2*klqglr=9vxajj53_$jua$y5l+*v56%eep
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
-# Define allowed hosts
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "expense-tracker-sz6q.onrender.com").split(",")
+# Allow all hosts (Public Access)
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
