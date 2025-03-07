@@ -8,9 +8,13 @@ import json
 from django.http import JsonResponse
 from userpreferences.models import UserPreference
 import datetime
-import requests
 import nltk
-nltk.data.path.append(r"C:\Users\Sujal\AppData\Roaming\nltk_data")  # Explicitly set path
+nltk.download('punkt')  # Ensure punkt is downloaded
+
+from nltk.tokenize import word_tokenize  # Your existing import
+
+
+  # Explicitly set path
 
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words('english'))  # This should now work
