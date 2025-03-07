@@ -11,7 +11,6 @@ import datetime
 import nltk
 nltk.download('punkt')  # Ensure punkt is downloaded
 
-from nltk.tokenize import word_tokenize  # Your existing import
 
 
   # Explicitly set path
