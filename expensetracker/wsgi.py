@@ -7,14 +7,19 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 """
 
-import os
 import nltk
+import os
 
-# Download the necessary datasets
-nltk.download('punkt')  # For tokenization
-nltk.download('stopwords')  # For stop words
-nltk.download('wordnet')  # For lemmatization
-nltk.download('averaged_perceptron_tagger')  # For POS tagging
+# Define a fixed path for NLTK data
+nltk_data_path = os.path.join(os.path.expanduser("~"), "nltk_data")
+nltk.data.path.append(nltk_data_path)
+
+# Ensure required NLTK packages are downloaded
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('stopwords', download_dir=nltk_data_path)
+nltk.download('wordnet', download_dir=nltk_data_path)
+nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_path)
+
 
 from django.core.wsgi import get_wsgi_application
 
