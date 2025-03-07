@@ -229,4 +229,3 @@ def get_expense_of_day(user):
     current_date = date.today()
     expenses = Expense.objects.filter(owner=user, date=current_date)
     return sum(expense.amount for expense in expenses)
-
