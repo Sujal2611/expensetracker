@@ -9,10 +9,15 @@ from django.http import JsonResponse
 from userpreferences.models import UserPreference
 import datetime
 import nltk
-nltk.download('punkt')  # Ensure punkt is downloaded
 
+# Ensure 'punkt' is downloaded
+nltk.download('punkt')
 
+from nltk.tokenize import word_tokenize
 
+def preprocess_text(text):
+    tokens = word_tokenize(text.lower())  # Now should work fine
+    return " ".join(tokens)
   # Explicitly set path
 
 from nltk.corpus import stopwords
